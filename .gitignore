@@ -47,3 +47,6 @@ venv.bak/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# GitSecure Log
+gitsecure.log
