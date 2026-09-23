@@ -163,11 +163,16 @@ COMMIT BLOCKED by GitSecure:
 ```
 Thao tác commit bị hủy bỏ hoàn toàn (`exit code 1`).
 
+![GitSecure chặn commit khi phát hiện thông tin nhạy cảm](image.png)
+
 **Nội dung được ghi nhận trong tệp `gitsecure.log`:**
 ```text
 [2026-09-23 14:51:47.797967] Sensitive info found in Buoi_1/Lab_2/pre-commit-hook-test/bad.py: pattern password\s*=\s*['\"][^'\"]{4,}['\"]
 [2026-09-23 14:54:16.853190] Sensitive info found in Buoi_1/Lab_2/pre-commit-hook-test/bad.py: pattern password\s*=\s*['\"][^'\"]{4,}['\"]
+[2026-09-23 20:34:36.822228] Sensitive info found in Buoi_1/Lab_2/pre-commit-hook-test/bad.py: pattern password\s*=\s*['\"][^'\"]{4,}['\"]
 ```
+
+![Nội dung ghi nhận vi phạm trong gitsecure.log](image-1.png)
 
 ---
 
@@ -182,28 +187,37 @@ Hook đã thành công ngăn chặn việc rò rỉ mã nguồn có giấy phép
 ---
 
 ### Kịch bản 3: Khắc phục thông tin nhạy cảm và thực hiện commit thành công (Good Case)
-Sửa đổi `pre-commit-hook-test/bad.py` để sử dụng biến môi trường an toàn:
+
+**1. Mã nguồn trước khi khắc phục (chứa mật khẩu cài cứng):**
+![Mã nguồn bad.py trước khi sửa](image-2.png)
+
+**2. Mã nguồn sau khi khắc phục (lấy an toàn từ biến môi trường):**
 ```python
 import os
 
 # Thông tin nhạy cảm đã được loại bỏ và lấy an toàn từ biến môi trường
 password = os.environ.get("DB_PASSWORD", "")
 ```
-Tiến hành thêm toàn bộ file và commit:
+![Mã nguồn bad.py sau khi sửa](image-3.png)
+
+**3. Thực hiện commit lại khi mã nguồn đã an toàn:**
 ```bash
-git add .
-git commit -m "[add] githooks"
+git add .\pre-commit-hook-test\bad.py
+git commit -m "[fix] remove hardcoded password"
 ```
 **Kết quả hiển thị trên Terminal:**
 ```text
 GitSecure: All checks passed.
-[main 4d13d15] [add] githooks
- 4 files changed, 73 insertions(+), 1 deletion(-)
- create mode 100644 .githooks/pre-commit
- create mode 100644 pre-commit-hook-test/bad.py
- create mode 100644 requirements.txt
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
 ```
-Toàn bộ quy trình kiểm tra bảo mật hoàn tất, commit được lưu trữ hợp lệ.
+![GitSecure vượt qua tất cả kiểm tra và commit thành công](image-4.png)
+
+**4. Đẩy mã nguồn an toàn lên GitHub:**
+```bash
+git push origin main
+```
+![Đẩy mã nguồn an toàn lên GitHub thành công](image-5.png)
 
 ---
 
