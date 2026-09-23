@@ -50,3 +50,6 @@ Thumbs.db
 
 # GitSecure Log
 gitsecure.log
+
+# Pytest cache
+.pytest_cache/
