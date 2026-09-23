@@ -413,3 +413,14 @@ Tất cả 19 bài kiểm thử đều đạt kết quả xuất sắc:
    python app.py
    ```
 3. Mở trình duyệt web truy cập `http://127.0.0.1:5000` để trực tiếp nhập dữ liệu kiểm tra trên giao diện.
+Minh chứng chạy Unit Test tự động
+![alt text](image.png)
+Minh chứng kiểm thử trên Giao diện Web (Web Form Test Cases)
+Kịch bản 1: Nhập dữ liệu bình thường (Hợp lệ)
+![alt text](image-1.png)
+Kịch bản 2: Nhập dữ liệu tấn công / Độc hại (Security Payloads)
+![alt text](image-2.png)
+Minh chứng dịch vụ trên Render (Cloud Deployment)
+![alt text](image-3.png)
+ Truy cập qua Interne
+![alt text](image-4.png)
