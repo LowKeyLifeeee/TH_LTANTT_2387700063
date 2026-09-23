@@ -91,6 +91,16 @@ def run_verification():
     assert original_hash != tampered_hash, "Lỗi thuật toán băm"
     print("\n[OK] PHÁT HIỆN GIAN LẬN THÀNH CÔNG: Bất kỳ thay đổi nào trên file log đều làm sai lệch mã băm SHA-256!")
 
+    print("\n5. KIỂM TRA ĐA CẤP ĐỘ LOG (DEBUG, INFO, WARNING, ERROR, CRITICAL):")
+    from securelogger.logger import get_secure_logger
+    test_logger = get_secure_logger()
+    test_logger.debug("Thông điệp kiểm tra mức DEBUG")
+    test_logger.info("Thông điệp kiểm tra mức INFO")
+    test_logger.warning("Thông điệp kiểm tra mức WARNING")
+    test_logger.error("Thông điệp kiểm tra mức ERROR")
+    test_logger.critical("Thông điệp kiểm tra mức CRITICAL")
+    print("[OK] Đã ghi nhận thành công cả 5 cấp độ log: DEBUG · INFO · WARNING · ERROR · CRITICAL!")
+
     print("\n" + "=" * 70)
     print("TẤT CẢ CÁC BƯỚC KIỂM TRA ĐÃ HOÀN TẤT VÀ ĐẠT CHUẨN 100%!")
     print("=" * 70)

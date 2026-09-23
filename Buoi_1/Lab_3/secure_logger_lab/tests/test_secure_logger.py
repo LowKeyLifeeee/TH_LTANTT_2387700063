@@ -143,3 +143,23 @@ class TestFlaskAPIAndLogging:
         assert response.status_code == 400
         data = response.get_json()
         assert data["error"] == "Invalid JSON format"
+
+
+class TestMultiLevelLogging:
+    """Kiểm tra hỗ trợ đầy đủ 5 cấp độ log: DEBUG, INFO, WARNING, ERROR, CRITICAL"""
+
+    def test_all_five_levels(self):
+        logger = get_secure_logger()
+        expected_levels = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+
+        logger.debug("Test debug message")
+        logger.info("Test info message")
+        logger.warning("Test warning message")
+        logger.error("Test error message")
+        logger.critical("Test critical message")
+
+        with open(LOG_FILE, "r", encoding="utf-8") as f:
+            lines = [json.loads(line.strip()) for line in f if line.strip()]
+
+        logged_levels = [item["level"] for item in lines[-5:]]
+        assert logged_levels == expected_levels

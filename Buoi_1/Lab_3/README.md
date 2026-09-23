@@ -200,25 +200,27 @@ Mã băm SHA-256 được tự động sinh ra và ghi nhận:
 
 ---
 
-### 5.4. Kết quả kiểm thử tự động với Pytest (8/8 test cases Passed)
+### 5.4. Kết quả kiểm thử tự động với Pytest (9/9 test cases Passed)
 
 ```
 ============================= test session starts =============================
 platform win32 -- Python 3.13.7, pytest-9.0.1, pluggy-1.6.0
 rootdir: D:\TH_LTANTT_2387700063\Buoi_1\Lab_3\secure_logger_lab
-collected 8 items
+collected 9 items
 
-tests/test_secure_logger.py::TestPIIMasking::test_mask_email PASSED      [ 12%]
-tests/test_secure_logger.py::TestPIIMasking::test_mask_token_and_apikey PASSED [ 25%]
-tests/test_secure_logger.py::TestPIIMasking::test_mask_dict_string PASSED [ 37%]
-tests/test_secure_logger.py::TestTamperDetectionAndHashing::test_hash_line_deterministic PASSED [ 50%]
-tests/test_secure_logger.py::TestTamperDetectionAndHashing::test_tamper_detection PASSED [ 62%]
-tests/test_secure_logger.py::TestGZipRotator::test_gzip_compression PASSED [ 75%]
-tests/test_secure_logger.py::TestFlaskAPIAndLogging::test_validate_endpoint_valid_payload PASSED [ 87%]
-tests/test_secure_logger.py::TestFlaskAPIAndLogging::test_validate_endpoint_invalid_json PASSED [100%]
+tests/test_secure_logger.py::TestPIIMasking::test_mask_email PASSED      [ 11%]
+tests/test_secure_logger.py::TestPIIMasking::test_mask_token_and_apikey PASSED [ 22%]
+tests/test_secure_logger.py::TestPIIMasking::test_mask_dict_string PASSED [ 33%]
+tests/test_secure_logger.py::TestTamperDetectionAndHashing::test_hash_line_deterministic PASSED [ 44%]
+tests/test_secure_logger.py::TestTamperDetectionAndHashing::test_tamper_detection PASSED [ 55%]
+tests/test_secure_logger.py::TestGZipRotator::test_gzip_compression PASSED [ 66%]
+tests/test_secure_logger.py::TestFlaskAPIAndLogging::test_validate_endpoint_valid_payload PASSED [ 77%]
+tests/test_secure_logger.py::TestFlaskAPIAndLogging::test_validate_endpoint_invalid_json PASSED [ 88%]
+tests/test_secure_logger.py::TestMultiLevelLogging::test_all_five_levels PASSED [100%]
 
-======================== 8 passed, 6 warnings in 0.24s ========================
+======================= 9 passed, 21 warnings in 0.51s ========================
 ```
+
 
 ---
 
