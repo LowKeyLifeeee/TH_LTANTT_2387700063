@@ -1,4 +1,3 @@
 import os
-
-# Thông tin nhạy cảm đã được loại bỏ và lấy an toàn từ biến môi trường
-password = os.environ.get("DB_PASSWORD", "")
+# Thong tin nhay cam da duoc loai bo
+password = os.environ.get('DB_PASSWORD', '')
