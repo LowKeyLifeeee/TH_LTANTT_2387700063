@@ -236,3 +236,14 @@ tests/test_secure_logger.py::TestMultiLevelLogging::test_all_five_levels PASSED 
 
 3. **Gửi log tập trung (Remote Log Shipping):**
    - Kết hợp forward log realtime qua giao thức Syslog qua TLS (RFC 5425) tới hệ thống SIEM tập trung ngăn ngừa nguy cơ xóa dấu vết cục bộ khi máy trạm bị chiếm quyền kiểm soát hoàn toàn.
+
+Gửi Request và nhận Response
+![alt text](image.png)
+Kiểm tra tệp secure.log (Minh chứng Che PII & Log JSON)
+![alt text](image-1.png)
+Kiểm tra tệp secure.log.sig (Minh chứng Tamper Detection)
+![alt text](image-2.png)
+Terminal chạy Flask app.py
+![alt text](image-3.png)
+Chạy kiểm thử tự động Pytest
+![alt text](image-4.png)

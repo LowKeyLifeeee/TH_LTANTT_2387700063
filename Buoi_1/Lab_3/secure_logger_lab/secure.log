@@ -1,1 +1,8 @@
 {"timestamp": "2026-09-23T08:56:01.854094Z", "level": "INFO", "message": "Validation check performed", "data": "{'email': '<email_masked>', 'filename': 'report.pdf', 'html': '<script>alert(1)</script>', 'sql': \"' OR 1=1 --\", 'url': 'https://secure.com'}", "results": "{'email': True, 'url': True, 'filename': True, 'sql': '1=1', 'html': '&lt;script&gt;alert(1)&lt;/script&gt;'}"}
+{"timestamp": "2026-09-23T14:04:37.452444Z", "level": "INFO", "message": "Validation check performed", "data": "{'email': '<email_masked>', 'filename': 'report.pdf', 'html': '<script>alert(1)</script>', 'sql': \"' OR 1=1 --\", 'url': 'https://secure.com'}", "results": "{'email': True, 'url': True, 'filename': True, 'sql': '1=1', 'html': '&lt;script&gt;alert(1)&lt;/script&gt;'}"}
+{"timestamp": "2026-09-23T14:04:37.490149Z", "level": "WARNING", "message": "Invalid JSON received", "data": "b'INVALID_JSON_RAW_DATA'"}
+{"timestamp": "2026-09-23T14:04:37.491770Z", "level": "DEBUG", "message": "Test debug message"}
+{"timestamp": "2026-09-23T14:04:37.491967Z", "level": "INFO", "message": "Test info message"}
+{"timestamp": "2026-09-23T14:04:37.492122Z", "level": "WARNING", "message": "Test warning message"}
+{"timestamp": "2026-09-23T14:04:37.492258Z", "level": "ERROR", "message": "Test error message"}
+{"timestamp": "2026-09-23T14:04:37.492418Z", "level": "CRITICAL", "message": "Test critical message"}
