@@ -37,8 +37,8 @@ Buoi_2/Lab_2/
     │   ├── root_ca_cert.pem       # Chứng chỉ số của Root CA
     │   ├── intermediate_key.pem   # Khóa riêng của Intermediate CA
     │   ├── intermediate_cert.pem  # Chứng chỉ số của Intermediate CA
-    │   ├── ThangTran_key.pem      # Khóa riêng của người dùng cuối (Trần Minh Thắng)
-    │   ├── ThangTran_cert.pem     # Chứng chỉ số của người dùng cuối (Trần Minh Thắng)
+    │   ├── Phuoc_Nguyen_key.pem   # Khóa riêng của người dùng cuối
+    │   ├── Phuoc_Nguyen_cert.pem  # Chứng chỉ số của người dùng cuối
     │   └── ca_crl.pem             # Danh sách thu hồi chứng chỉ (CRL)
     └── tests/
         └── test_ca.py             # Bộ kiểm thử tự động với Pytest
@@ -245,10 +245,10 @@ pytest mini-ca/tests/test_ca.py -v
 | STT | Bước thực nghiệm | Lệnh thực hiện / Thao tác | Tên file ảnh gợi ý | Mô tả nội dung cần chụp |
 |:---:|:---|:---|:---|:---|
 | **1** | Cài đặt thư viện cryptography | `pip install -r requirements.txt` | `image.png` | Terminal thông báo môi trường Python đã cài đặt gói `cryptography`. |
-| **2** | Chạy kịch bản CLI `demo.py` | `python .\demo.py` | `image-1.png` | Terminal hiển thị toàn bộ chu trình CA (Tạo Root, Intermediate, phát hành User Cert `ThangTran`, xác thực chuỗi hợp lệ, thu hồi và kiểm tra trạng thái OCSP `Revoked`). |
-| **3** | Kiểm tra thư mục `certs/` | Xem thư mục trong VS Code Explorer | `image-2.png` | Cây thư mục VS Code hiển thị thư mục `mini-ca/certs` chứa đầy đủ 7 tệp PEM (`ca_crl.pem`, `intermediate_*.pem`, `ThangTran_*.pem`, `root_ca_*.pem`). |
-| **4** | Giao diện đồ họa GUI (Tạo CA & Cấp Cert) | `python .\demo_ui.py` | `image-3.png` | Cửa sổ ứng dụng Tkinter sau khi bấm nút 1 (Tạo CA) và nút 2 (Phát hành User Cert `ThangTran`). |
-| **5** | Giao diện đồ họa GUI (Thu hồi & Kiểm tra OCSP) | Thao tác nút 3, 4, 5 trên GUI | `image-4.png` | Cửa sổ Tkinter hiển thị chuỗi hợp lệ, popup thông báo thu hồi chứng chỉ `ThangTran` và kiểm tra trạng thái OCSP (`Đã thu hồi`). |
+| **2** | Chạy kịch bản CLI `demo.py` | `python .\demo.py` | `image-1.png` | Terminal hiển thị toàn bộ chu trình CA (Tạo Root, Intermediate, phát hành User Cert, xác thực chuỗi hợp lệ, thu hồi và kiểm tra trạng thái OCSP `Revoked`). |
+| **3** | Kiểm tra thư mục `certs/` | Xem thư mục trong VS Code Explorer | `image-2.png` | Cây thư mục VS Code hiển thị thư mục `mini-ca/certs` chứa đầy đủ 7 tệp PEM (`ca_crl.pem`, `intermediate_*.pem`, `Phuoc_Nguyen_*.pem`, `root_ca_*.pem`). |
+| **4** | Giao diện đồ họa GUI (Tạo CA & Cấp Cert) | `python .\demo_ui.py` | `image-3.png` | Cửa sổ ứng dụng Tkinter sau khi bấm nút 1 (Tạo CA) và nút 2 (Phát hành User Cert). |
+| **5** | Giao diện đồ họa GUI (Thu hồi & Kiểm tra OCSP) | Thao tác nút 3, 4, 5 trên GUI | `image-4.png` | Cửa sổ Tkinter hiển thị chuỗi hợp lệ, popup thông báo thu hồi chứng chỉ và kiểm tra trạng thái OCSP (`Đã thu hồi`). |
 | **6** | Chạy kiểm thử tự động Unit Tests | `pytest tests/test_ca.py -v` | `image-5.png` | Kết quả thực thi Pytest đạt 6/6 test cases `PASSED` (100%). |
 | **7** | Cấu hình bảo mật `.gitignore` | Mở tệp `.gitignore` trong VS Code | `image-6.png` | Khung hiển thị tệp `.gitignore` chứa các dòng `certs/` và `*.pem` bảo vệ các cặp khóa bí mật không bị đưa lên Git. |
 
@@ -261,7 +261,7 @@ Cài đặt thư viện nền tảng mật mã học theo yêu cầu:
 ```powershell
 pip install -r requirements.txt
 ```
-![Minh chứng cài đặt package](image.png)
+![alt text](image.png) 
 
 ---
 
@@ -273,19 +273,19 @@ python .\demo.py
 ```text
 PS D:\TH_LTANTT_2387700063\Buoi_2\Lab_2\mini-ca> python .\demo.py
 Tạo Root CA...
-Root CA: <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPrivateKey object at 0x00000212EB8EA270>, <Certificate(subject=<Name(CN=Mini Root CA Root,O=Mini Root CA,C=VN)>, ...)>
+Root CA: <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPrivateKey object at 0x000001BBCBA5A270>, <Certificate(subject=<Name(CN=Mini Root CA Root,O=Mini Root CA,C=VN)>, ...)>
 Tạo Intermediate CA...
-Intermediate CA: <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPrivateKey object at 0x00000212EC193FB0>, <Certificate(subject=<Name(CN=Mini Intermediate CA,O=Mini Intermediate CA,C=VN)>, ...)>
+Intermediate CA: <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPrivateKey object at 0x000001BBCC273FB0>, <Certificate(subject=<Name(CN=Mini Intermediate CA,O=Mini Intermediate CA,C=VN)>, ...)>
 Phát hành chứng chỉ người dùng cuối...
-Đã phát hành: certs\ThangTran_cert.pem, certs\ThangTran_key.pem
+Đã phát hành: certs\Phuoc_Nguyen_cert.pem, certs\Phuoc_Nguyen_key.pem
 Kiểm tra chuỗi chứng chỉ...
 Chuỗi hợp lệ: True
 Thu hồi chứng chỉ user1...
 Đã thu hồi
-Kiểm tra trạng thái OCSP của ThangTran_cert.pem...
+Kiểm tra trạng thái OCSP của Phuoc_Nguyen_cert.pem...
 Trạng thái: Revoked
 ```
-![Minh chứng chạy file demo.py](image-1.png)
+![alt text](image-1.png)
 
 ---
 
@@ -293,10 +293,10 @@ Trạng thái: Revoked
 Thư mục `mini-ca/certs/` được sinh ra tự động, chứa đầy đủ các cặp khóa và chứng chỉ X.509:
 - `root_ca_key.pem`, `root_ca_cert.pem`
 - `intermediate_key.pem`, `intermediate_cert.pem`
-- `ThangTran_key.pem`, `ThangTran_cert.pem`
+- `Phuoc_Nguyen_key.pem`, `Phuoc_Nguyen_cert.pem`
 - `ca_crl.pem`
 
-![Minh chứng thư mục certs](image-2.png)
+![alt text](image-2.png)
 
 ---
 
@@ -306,13 +306,13 @@ Khởi chạy ứng dụng:
 python .\demo_ui.py
 ```
 Bấm nút **1. Tạo Root & Intermediate CA** và **2. Phát hành User Cert**:
-![Minh chứng GUI tạo CA và cấp chứng chỉ](image-3.png)
+![alt text](image-2.png)
 
 ---
 
 ### 7.5. Minh chứng 5: Giao diện đồ họa Tkinter (Xác thực chuỗi, Thu hồi & Kiểm tra OCSP)
 Thực hiện bấm tiếp **3. Kiểm tra Chuỗi Cert**, **4. Thu hồi User Cert** và **5. Kiểm tra Trạng thái OCSP**:
-![Minh chứng GUI thu hồi và kiểm tra OCSP](image-4.png)
+![alt text](image-3.png)
 
 ---
 
@@ -336,7 +336,7 @@ tests/test_ca.py::test_revocation_crl_and_ocsp PASSED                    [100%]
 
 ======================= 6 passed, 29 warnings in 0.70s ========================
 ```
-![Minh chứng Unit Tests](image-5.png)
+![alt text](image-4.png)
 
 ---
 
@@ -348,7 +348,7 @@ gitsecure.log
 certs/
 *.pem
 ```
-![Minh chứng bảo mật gitignore](image-6.png)
+![alt text](image-5.png)
 
 ---
 
