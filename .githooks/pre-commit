@@ -58,7 +58,7 @@ def check_license(file_path):
 
 def run_bandit():
     try:
-        result = subprocess.run(["bandit", "-r", "."], capture_output=True, text=True)
+        result = subprocess.run(["bandit", "-r", ".", "-x", "./.venv"], capture_output=True, text=True, encoding="utf-8", errors="ignore")
         if "SEVERITY: High" in result.stdout or "Severity: High" in result.stdout:
             log("Bandit: High severity issues found.")
             return "Bandit: High severity issues found."
