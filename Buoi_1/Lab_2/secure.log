@@ -1,0 +1,1 @@
+{"timestamp": "2026-09-23T14:42:25.591365Z", "level": "INFO", "message": "Validation check performed", "data": "{'email': '<email_masked>', 'url': 'https://hutech.com', 'filename': 'exploit.pdf', 'sql': \"' OR 1=1 --\", 'html': '<script>hutech()</script>'}", "results": "{'email': True, 'url': True, 'filename': True, 'sql': '1=1', 'html': '&lt;script&gt;hutech()&lt;/script&gt;'}"}
