@@ -296,7 +296,7 @@ Thư mục `mini-ca/certs/` được sinh ra tự động, chứa đầy đủ c
 - `Phuoc_Nguyen_key.pem`, `Phuoc_Nguyen_cert.pem`
 - `ca_crl.pem`
 
-![alt text](image-2.png)
+![alt text](image-6.png)
 
 ---
 
