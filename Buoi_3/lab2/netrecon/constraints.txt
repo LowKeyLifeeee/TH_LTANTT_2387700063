@@ -1,0 +1,3 @@
+# htmx trong tai lieu yeu cau Pydantic 1; dung NiceGUI 1 de tuong thich.
+nicegui<2
+fastapi<0.120

@@ -1,0 +1,10 @@
+body { font-family: monospace; background: #1e1e1e; color: #eee; padding: 20px; }
+.container { max-width: 800px; margin: auto; }
+label { display: block; margin-top: 14px; }
+input, select, button { box-sizing: border-box; margin: 5px 0; padding: 9px; font: inherit; }
+input, select { width: 100%; }
+button { background: #4caf50; border: 0; cursor: pointer; padding: 10px 24px; }
+button:disabled { opacity: .6; cursor: wait; }
+pre { background: #2e2e2e; padding: 10px; border-left: 4px solid #4caf50; white-space: pre-wrap; overflow-wrap: anywhere; }
+li { overflow-wrap: anywhere; }
+.error { color: #ffaaaa; }

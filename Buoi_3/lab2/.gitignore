@@ -1,0 +1,5 @@
+netrecon/.env
+netrecon/.venv/
+__pycache__/
+*.pyc
+*.log

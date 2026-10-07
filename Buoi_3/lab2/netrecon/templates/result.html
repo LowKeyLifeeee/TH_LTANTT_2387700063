@@ -1,0 +1,20 @@
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+{% if email_status %}<p role="status">{{ email_status }}</p>{% endif %}
+{% if 'scan' in result %}
+<h2>Scan Result</h2><pre>{{ result.scan }}</pre>
+{% endif %}
+{% if 'service' in result %}
+<h2>Service Detection</h2><pre>{{ result.service }}</pre>
+{% endif %}
+{% if 'banner' in result %}
+<h2>Banner Grabbing</h2>
+<ul>{% for port, banner in result.banner.items() %}<li>Port {{ port }}: {{ banner }}</li>{% endfor %}</ul>
+{% endif %}
+{% if 'map' in result %}
+<h2>Network Map — bảng ARP cục bộ</h2><pre>{{ result.map }}</pre>
+{% endif %}
+{% if 'vuln' in result %}
+<h2>Vulnerability Check</h2>
+<p>Các CVE dưới đây là gợi ý theo cổng. Cần đối chiếu dịch vụ và phiên bản để xác nhận.</p>
+<ul>{% for port, vuln in result.vuln.items() %}<li>Port {{ port }}: {{ vuln }}</li>{% else %}<li>Không có gợi ý trong danh sách cơ bản.</li>{% endfor %}</ul>
+{% endif %}
