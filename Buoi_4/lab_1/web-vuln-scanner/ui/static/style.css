@@ -1,0 +1,6 @@
+body{font-family:Segoe UI,Arial,sans-serif;background:#f4f7fa;color:#192d42;margin:0;line-height:1.6}
+main{max-width:860px;margin:48px auto;padding:28px;background:white;border-radius:12px}
+h1{line-height:1.2}label{display:block;margin:12px 0}input[type=url]{box-sizing:border-box;width:100%;padding:12px;font:inherit}
+fieldset{border:1px solid #ccd6df;margin:22px 0;padding:16px}button{background:#185b91;color:white;border:0;padding:12px 24px;border-radius:6px;font:inherit;cursor:pointer}
+article{border-top:1px solid #ccd6df;padding:16px 0}code,.wrap,.error{overflow-wrap:anywhere}.error{color:#a11d2b}a{color:#185b91}
+@media(max-width:600px){main{margin:12px;padding:18px}h1{font-size:1.8rem}}

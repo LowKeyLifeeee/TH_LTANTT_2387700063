@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kết quả kiểm thử</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main><h1>Kết quả kiểm thử</h1><p class="wrap">{{ url }}</p>
+<p>{{ report.summary.total }} dấu hiệu cần xác minh. Mức độ rủi ro là ước tính nếu lỗ hổng được xác nhận.</p>
+{% for error in report.errors %}<p class="error">Không hoàn tất: {{ error }}</p>{% endfor %}
+{% for v in report.vulnerabilities %}<article>
+<h2>{{ v.type|default('Phát hiện') }} · {{ v.risk }}</h2>
+<p><strong>Vị trí:</strong> {{ v.param|default('N/A') }}</p><p>{{ v.desc }}</p>
+{% if v.payload %}<p><strong>Payload:</strong> <code>{{ v.payload }}</code></p>{% endif %}
+{% if v.value %}<p class="wrap"><strong>Giá trị:</strong> {{ v.value }}</p>{% endif %}
+{% if v.url %}<p class="wrap"><strong>URL kiểm thử:</strong> {{ v.url }}</p>{% endif %}
+<p><strong>Khắc phục:</strong> {{ v.remediation }}</p></article>
+{% else %}<p>Không tìm thấy dấu hiệu trong các kiểm tra đã hoàn thành.</p>{% endfor %}
+{% for check in report.checks %}<p>{{ check.type }}: {{ check.desc }}</p>{% endfor %}
+<a href="/">Quay lại trang kiểm thử</a></main></body></html>

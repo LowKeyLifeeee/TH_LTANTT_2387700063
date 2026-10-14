@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Vulnerability Scanner</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main><p>LAB 4.2 · BẢO MẬT WEB APP</p><h1>Web Vulnerability Scanner</h1>
+<p>Kiểm tra ứng dụng của bạn hoặc môi trường được phép kiểm thử.</p>
+{% if error %}<p role="alert" class="error">{{ error }}</p>{% endif %}
+<form method="post"><label for="url">URL cần kiểm thử</label>
+<input id="url" type="url" name="url" required value="{{ url|default('') }}" placeholder="http://127.0.0.1:8000/">
+<fieldset><legend>Chọn công cụ</legend>
+<label><input type="checkbox" name="scanner" value="xss" checked> XSS — kiểm tra phản hồi payload</label>
+<label><input type="checkbox" name="scanner" value="sql" checked> SQL Injection — phân tích tham số URL</label>
+<label><input type="checkbox" name="scanner" value="csrf" checked> CSRF — phân tích form HTML</label>
+<label><input type="checkbox" name="scanner" value="ssrf" checked> SSRF — tìm địa chỉ nội bộ trong tham số</label>
+</fieldset><button type="submit">Bắt đầu kiểm thử</button></form>
+<p>Kết quả là dấu hiệu cần xác minh; công cụ không chứng minh ứng dụng an toàn.</p>
+</main></body></html>

@@ -1,0 +1,38 @@
+{
+  "vulnerabilities": [
+    {
+      "type": "SQL Injection",
+      "param": "id",
+      "payload": "' OR '1'='1",
+      "desc": "Potential SQL Injection signature in URL; database behavior not tested.",
+      "risk": "CRITICAL",
+      "status": "potential",
+      "remediation": "Use parameterized queries and least-privilege database accounts."
+    },
+    {
+      "type": "SSRF",
+      "param": "url",
+      "value": "http://127.0.0.1/admin",
+      "desc": "Potential SSRF to internal resource; server-side request not verified.",
+      "risk": "HIGH",
+      "status": "potential",
+      "remediation": "Allowlist destinations; validate resolved IPs and every redirect."
+    }
+  ],
+  "checks": [
+    {
+      "type": "CSRF",
+      "csrf_protected": true,
+      "status": "info",
+      "risk": "INFO",
+      "param": "",
+      "desc": "Token present, or no forms found; server-side validation not verified.",
+      "remediation": "Validate CSRF tokens server-side; use SameSite cookies and verify Origin."
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "total": 2,
+    "complete": true
+  }
+}
