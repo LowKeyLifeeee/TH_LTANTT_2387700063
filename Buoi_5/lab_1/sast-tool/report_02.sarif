@@ -1,0 +1,125 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "PySAST",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "version": "1.0.0"
+        }
+      },
+      "columnKind": "unicodeCodePoints",
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Use of eval() is dangerous and should be avoided."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/TH_LTANTT_2387700063/Buoi_5/lab_1/sast-tool/examples/vulnerable_02.py"
+                },
+                "region": {
+                  "startColumn": 12,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "ruleId": "Use of eval"
+        },
+        {
+          "message": {
+            "text": "Use of exec() is dangerous and should be avoided."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/TH_LTANTT_2387700063/Buoi_5/lab_1/sast-tool/examples/vulnerable_02.py"
+                },
+                "region": {
+                  "startColumn": 5,
+                  "startLine": 11
+                }
+              }
+            }
+          ],
+          "ruleId": "Use of exec"
+        },
+        {
+          "message": {
+            "text": "E302 expected 2 blank lines, found 1"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/TH_LTANTT_2387700063/Buoi_5/lab_1/sast-tool/examples/vulnerable_02.py"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 5
+                }
+              }
+            }
+          ],
+          "ruleId": "Lint Issue"
+        },
+        {
+          "message": {
+            "text": "E302 expected 2 blank lines, found 1"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/TH_LTANTT_2387700063/Buoi_5/lab_1/sast-tool/examples/vulnerable_02.py"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "ruleId": "Lint Issue"
+        },
+        {
+          "message": {
+            "text": "E305 expected 2 blank lines after class or function definition, found 1"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/TH_LTANTT_2387700063/Buoi_5/lab_1/sast-tool/examples/vulnerable_02.py"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "ruleId": "Lint Issue"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json"
+}
