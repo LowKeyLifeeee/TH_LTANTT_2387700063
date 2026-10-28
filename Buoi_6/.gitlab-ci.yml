@@ -1,0 +1,31 @@
+stages:
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  image: node:24-bookworm-slim
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  image: alpine:3.22
+  dependencies:
+    - build-job
+  script:
+    - mv build/ public/
+  pages: true
+  artifacts:
+    paths:
+      - public/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  environment:
+    name: production
+    url: $CI_PAGES_URL

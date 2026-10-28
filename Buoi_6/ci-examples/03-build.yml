@@ -1,0 +1,9 @@
+build-job:
+  image: node:24-bookworm-slim
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week

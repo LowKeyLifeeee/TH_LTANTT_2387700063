@@ -1,0 +1,31 @@
+name: Basic pipeline lab
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-job:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Hello, $GITHUB_ACTOR!"
+  test-job1:
+    needs: build-job
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "This job tests something"
+  test-job2:
+    needs: build-job
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          echo "This job tests something, but takes more time than test-job1."
+          echo "Wait 20 seconds to simulate a longer test."
+          sleep 20
+  deploy-prod:
+    needs: [test-job1, test-job2]
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "This job simulates deployment from $GITHUB_REF_NAME."
